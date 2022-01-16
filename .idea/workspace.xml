@@ -1,11 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f6830fc-2b75-45ad-85a1-33ae634c5b2c" name="Default Changelist" comment="" />
+    <list default="true" id="8f6830fc-2b75-45ad-85a1-33ae634c5b2c" name="Default Changelist" comment="Add gitignore.">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/contact.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/entertainments.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Sela.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Sela.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -17,9 +44,38 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager">
+    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Sela" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\User\PycharmProjects\Sela\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.app" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -32,9 +88,36 @@
       <option name="presentableId" value="Default" />
       <updated>1642316922914</updated>
     </task>
+    <task id="LOCAL-00001" summary="Add gitignore.">
+      <created>1642317928597</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1642317928597</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add gitignore." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add gitignore." />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="803" y="154" key="#app" timestamp="1642318493741">
+      <screen x="0" y="0" width="1680" height="1020" />
+    </state>
+    <state x="803" y="154" key="#app/0.0.1680.1020@0.0.1680.1020" timestamp="1642318493741" />
     <state x="294" y="165" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1642317404723">
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
@@ -43,6 +126,22 @@
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
     <state x="619" y="265" key="FileChooserDialogImpl/0.0.1680.1020@0.0.1680.1020" timestamp="1642317465107" />
+    <state width="1298" height="143" key="GridCell.Tab.0.bottom" timestamp="1642326638046">
+      <screen x="0" y="0" width="1680" height="1020" />
+    </state>
+    <state width="1298" height="143" key="GridCell.Tab.0.bottom/0.0.1680.1020@0.0.1680.1020" timestamp="1642326638046" />
+    <state width="1298" height="143" key="GridCell.Tab.0.center" timestamp="1642326638046">
+      <screen x="0" y="0" width="1680" height="1020" />
+    </state>
+    <state width="1298" height="143" key="GridCell.Tab.0.center/0.0.1680.1020@0.0.1680.1020" timestamp="1642326638046" />
+    <state width="1298" height="143" key="GridCell.Tab.0.left" timestamp="1642326638046">
+      <screen x="0" y="0" width="1680" height="1020" />
+    </state>
+    <state width="1298" height="143" key="GridCell.Tab.0.left/0.0.1680.1020@0.0.1680.1020" timestamp="1642326638046" />
+    <state width="1298" height="143" key="GridCell.Tab.0.right" timestamp="1642326638046">
+      <screen x="0" y="0" width="1680" height="1020" />
+    </state>
+    <state width="1298" height="143" key="GridCell.Tab.0.right/0.0.1680.1020@0.0.1680.1020" timestamp="1642326638046" />
     <state x="341" y="155" key="SettingsEditor" timestamp="1642317685910">
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
