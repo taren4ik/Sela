@@ -10,17 +10,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f6830fc-2b75-45ad-85a1-33ae634c5b2c" name="Default Changelist" comment="Add gitignore.">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/contact.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/entertainments.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Sela.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Sela.iml" afterDir="false" />
+    <list default="true" id="8f6830fc-2b75-45ad-85a1-33ae634c5b2c" name="Default Changelist" comment="Все работает без чужого шаблона.">
+      <change afterPath="$PROJECT_DIR$/templates/news.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +43,13 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Comp-intel/static/css/main.css" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\PycharmProjects\Sela\static\css" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -95,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642317928597</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Все работает без чужого шаблона.">
+      <created>1642329166277</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1642329166293</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -111,7 +120,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add gitignore." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add gitignore." />
+    <MESSAGE value="Все работает без чужого шаблона." />
+    <option name="LAST_COMMIT_MESSAGE" value="Все работает без чужого шаблона." />
   </component>
   <component name="WindowStateProjectService">
     <state x="803" y="154" key="#app" timestamp="1642318493741">
@@ -122,29 +132,33 @@
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
     <state x="294" y="165" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1020@0.0.1680.1020" timestamp="1642317404723" />
-    <state x="619" y="265" key="FileChooserDialogImpl" timestamp="1642317465107">
+    <state x="619" y="265" key="FileChooserDialogImpl" timestamp="1642338115254">
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
-    <state x="619" y="265" key="FileChooserDialogImpl/0.0.1680.1020@0.0.1680.1020" timestamp="1642317465107" />
-    <state width="1298" height="143" key="GridCell.Tab.0.bottom" timestamp="1642326638046">
+    <state x="619" y="265" key="FileChooserDialogImpl/0.0.1680.1020@0.0.1680.1020" timestamp="1642338115254" />
+    <state width="1659" height="143" key="GridCell.Tab.0.bottom" timestamp="1642338641453">
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
-    <state width="1298" height="143" key="GridCell.Tab.0.bottom/0.0.1680.1020@0.0.1680.1020" timestamp="1642326638046" />
-    <state width="1298" height="143" key="GridCell.Tab.0.center" timestamp="1642326638046">
+    <state width="1659" height="143" key="GridCell.Tab.0.bottom/0.0.1680.1020@0.0.1680.1020" timestamp="1642338641453" />
+    <state width="1659" height="143" key="GridCell.Tab.0.center" timestamp="1642338641453">
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
-    <state width="1298" height="143" key="GridCell.Tab.0.center/0.0.1680.1020@0.0.1680.1020" timestamp="1642326638046" />
-    <state width="1298" height="143" key="GridCell.Tab.0.left" timestamp="1642326638046">
+    <state width="1659" height="143" key="GridCell.Tab.0.center/0.0.1680.1020@0.0.1680.1020" timestamp="1642338641453" />
+    <state width="1659" height="143" key="GridCell.Tab.0.left" timestamp="1642338641453">
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
-    <state width="1298" height="143" key="GridCell.Tab.0.left/0.0.1680.1020@0.0.1680.1020" timestamp="1642326638046" />
-    <state width="1298" height="143" key="GridCell.Tab.0.right" timestamp="1642326638046">
+    <state width="1659" height="143" key="GridCell.Tab.0.left/0.0.1680.1020@0.0.1680.1020" timestamp="1642338641453" />
+    <state width="1659" height="143" key="GridCell.Tab.0.right" timestamp="1642338641453">
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
-    <state width="1298" height="143" key="GridCell.Tab.0.right/0.0.1680.1020@0.0.1680.1020" timestamp="1642326638046" />
+    <state width="1659" height="143" key="GridCell.Tab.0.right/0.0.1680.1020@0.0.1680.1020" timestamp="1642338641453" />
     <state x="341" y="155" key="SettingsEditor" timestamp="1642317685910">
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
     <state x="341" y="155" key="SettingsEditor/0.0.1680.1020@0.0.1680.1020" timestamp="1642317685910" />
+    <state x="616" y="117" width="585" height="795" key="find.popup" timestamp="1642329210264">
+      <screen x="0" y="0" width="1680" height="1020" />
+    </state>
+    <state x="616" y="117" width="585" height="795" key="find.popup/0.0.1680.1020@0.0.1680.1020" timestamp="1642329210264" />
   </component>
 </project>

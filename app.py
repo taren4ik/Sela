@@ -9,7 +9,7 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/entertainments.html')
+@app.route('/entertainments')
 def entertainments():
     return render_template('entertainments.html')
 
@@ -17,6 +17,11 @@ def entertainments():
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
+
+
+@app.route('/news')
+def news():
+    return render_template('news.html')
 
 
 if __name__ == '__main__':
