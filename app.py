@@ -1,4 +1,6 @@
-from flask import Flask, render_template, url_for
+import datetime
+
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -6,6 +8,7 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/home')
 def index():
+    data = datetime.datetime.now().year
     return render_template('index.html')
 
 
@@ -22,6 +25,11 @@ def contact():
 @app.route('/news')
 def news():
     return render_template('news.html')
+
+
+@app.route('/gallery')
+def gallery():
+    return render_template('gallery.html')
 
 
 if __name__ == '__main__':
