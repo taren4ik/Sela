@@ -17,6 +17,11 @@ def entertainments():
     return render_template('entertainments.html')
 
 
+@app.route('/base_contact')
+def base_contact():
+    return render_template('base_contact.html')
+
+
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
