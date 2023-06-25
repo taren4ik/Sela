@@ -1,20 +1,21 @@
-def main():
-	weekend = (6, 7,)
-	read_books = 1
-	positiv = 0
-	k, books_total, day_now = map(int, input().split())
-	while read_books <= books_total + k:
-		if day_now not in weekend:
-			books_total += k
-		books_total -= read_books
-		if books_total >= 0:
-			read_books += 1
-			positiv += 1
-			day_now += 1 % 7
-		else:
-			return positiv
-	return positiv
+import math
+a, b = map(int, input().split())
+sequence = []
+result = []
+otvet = 0
 
+xy = a * b
+if b % a == 0:
+    tt = int(b / a)
+    for value in range(1, tt + 1):
+        if tt % value == 0:
+            sequence.append(value)
+    for word in sequence:
+        result.append(int(word) * a)
 
-if __name__ == '__main__':
-	print(main())
+    for element in result:
+        y = xy / element
+        if float(xy) // math.gcd(element, int(y)) == b:
+            otvet += 1
+
+print(otvet)
