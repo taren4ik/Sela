@@ -4,17 +4,17 @@ import datetime
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 
-
 basedir = os.path.abspath(os.path.dirname(__file__))
 dbpath = 'ad.db'
 app = Flask(__name__)
+app.debug = False
 app.config['SQLALCHEMY_DATABASE_URI'] = ('sqlite:///' + os.path.join(
     basedir, 'database.db'))
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
-class Ad(db.Model):
+class Posts(db.Model):
     __tablename__ = 'Ad'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
@@ -65,19 +65,29 @@ def posts():
         title = request.form['title']
         text = request.form['text']
         phone = request.form['phone']
+        post = Posts(title=title, phone=phone, text=text, name='admin')
+        try:
+            db.session.add(post)
+            db.session.commit()
+            return redirect('posts')
 
-        ad = Ad(title=title, phone=phone, text=text, name='admin')
-       # try:
-
-        db.session.add(ad)
-        db.session.commit()
-        return redirect('/')
-
-        #except:
-        #    return "Ошибка при добавлении."
+        except Exception as e:
+            return e
 
     else:
-        return render_template('posts.html')
+        posts_new = Posts.query.order_by(Posts.date.desc()).all()
+        return render_template('posts.html', posts_new=posts_new)
+
+
+@app.route('/posts/<int:id>/delete')
+def post_delete(id):
+    post = Posts.query.get_or_404(id)
+    try:
+        db.session.delete(post)
+        db.session.commit()
+        return redirect ('/posts')
+    except Exception as e:
+        return e
 
 
 if __name__ == '__main__':
