@@ -85,10 +85,18 @@ def post_delete(id):
     try:
         db.session.delete(post)
         db.session.commit()
-        return redirect ('/posts')
+        return redirect('/posts')
     except Exception as e:
         return e
 
 
+@app.context_processor
+def year():
+    datetime_now = datetime.datetime.now()
+    return {
+        "year": datetime_now.year,
+    }
+
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=os.environ.get('FLASK_SERVER_PORT', 5000))
