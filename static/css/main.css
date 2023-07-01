@@ -7,27 +7,26 @@ body {
     background-attachment: fixed;
 }
 
-h1, {
-    font-size: 35px;
-    font-style: italic;
-    font-weight: bolder;
-    margin-left: 20px;
-    color:#FFFFFF;
-}
-
-h2{
+h1, h2 {
     font-size: 50px;
     font-style: italic;
     font-weight: bolder;
     margin-left: 20px;
     color:#E2D6CE;
 }
-
-p, a{
-    font-style: italic;
+h2  {
+    font-size: 35px;
     color:#FFFFFF;
+    padding-bottom: 5%;
+}
+a   {
+    font-style: italic;
     font-size: 25px;
+}
 
+p   {   font-style: italic;
+        text-align: justify;
+        font-size: 20px;
 }
 
 nav, span {
@@ -47,7 +46,9 @@ nav, span {
 
 
 .content {
-  padding: 3% 10% 3% 10%;
+  padding: 3% 15% 3% 15%;
+  width: auto;
+  font-style: italic;
 }
 .map {
     display: block;
@@ -107,12 +108,12 @@ nav, span {
 
 
 .table {
-	width: 100%;
 	margin-bottom: 20px;
 	border: 15px solid #F2F8F8;
 	border-top: 5px solid #F2F8F8;
 	border-collapse: collapse;
 	background-color: #F2F8F8;
+	margin: auto;
 }
 .table th {
 	font-weight: bold;
@@ -125,4 +126,14 @@ nav, span {
 	padding: 5px;
 	border: none;
 	border-bottom: 5px solid #F2F8F8;
+
+
+form {
+  padding: 3% 20% 3% 20%;
 }
+
+.saint,.fish {
+
+    padding-bottom: 10%;
+}
+

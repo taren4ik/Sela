@@ -4,10 +4,11 @@
 {% endblock %}
 
 {% block body %}
-<h1 style="margin-center: 0%;"> Список объявлений</h1>
+<h2> Список объявлений</h2>
+<div class="container mt-5">
   {% for post in posts_new %}
     <div class="alert alert-info">
-      <h2>{{ post.title }}</h2>
+      <h3>{{ post.title }}</h3>
       <p>Объявление: {{ post.text }}</p>
       <p>Автор: {{ post.name }}</p>
       <p>Телефон: {{ post.phone }}</p>
@@ -15,6 +16,7 @@
       <a href="/posts/{{post.id }}/delete" class="btn btn-danger">Удалить</a>
     </div>
   {% endfor %}
+</div>
 
 <div class="container mt-5">
   <h2>Новое объявление</h2>
