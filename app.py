@@ -20,7 +20,7 @@ dbpath = 'ad.db'
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 app = Flask(__name__)
-app.debug = True
+app.debug = False
 app.config['SQLALCHEMY_DATABASE_URI'] = ('sqlite:///' + os.path.join(
     basedir, 'database.db'))
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -30,6 +30,7 @@ app.config['WTF_CSRF_SECRET_KEY'] = SECRET_KEY
 
 db = SQLAlchemy(app)
 login_manager = LoginManager(app)
+
 
 class Posts(db.Model):
     __tablename__ = 'Ad'
