@@ -18,17 +18,20 @@
   {% endfor %}
 </div>
 
-<div class="container mt-5">
-  <h2>Новое объявление</h2>
-    <form method="post">
-      <input type="text" name="title" id="title" class="form-control"
-             placeholder="Введите название объявления"><br>
-      <textarea type="text" name="text" id="text" class="form-control"
-                placeholder="Введите текст объявления"
-      ></textarea><br>
-      <input type="tel" name="phone" id="phone" class="form-control"
-             placeholder="Введите номер для контакта"><br>
-      <input type="submit"  class="btn btn-success" value="Отправить">
-    </form>
-</div>
+
+{% if current_user.is_authenticated %}
+  <div class="container mt-5">
+    <h2>Новое объявление</h2>
+      <form method="post">
+        <input type="text" name="title" id="title" class="form-control"
+               placeholder="Введите название объявления"><br>
+        <textarea type="text" name="text" id="text" class="form-control"
+                  placeholder="Введите текст объявления"
+        ></textarea><br>
+        <input type="tel" name="phone" id="phone" class="form-control"
+               placeholder="Введите номер для контакта"><br>
+        <input type="submit"  class="btn btn-success" value="Отправить">
+      </form>
+  </div>
+{% endif %}
 {% endblock %}

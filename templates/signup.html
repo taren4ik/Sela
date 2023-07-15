@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+</head>
+<body>
+<h1>Регистрация</h1>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    {% block body %}{% endblock %}
+<form method="post">
+    <table>
+        <tr>
+            <td><input type="text" name="first_name" value="Имя"></td>
+        </tr>
+        <tr>
+            <td><input type="text" name="login" value="Логин"></td>
+        </tr>
+        <tr>
+            <td><input type="tel" name="phone" value="Телефон"></td>
+        </tr>
+        <tr>
+            <td><input type="password" name="password" value="Пароль"></td>
+        </tr>
+
+        <tr>
+            <td><input type="password" name="password2" value="Пароль"></td>
+        </tr>
+
+        <tr>
+            <td><a href="{{ url_for ('login') }}">Вход</a></td>
+            <td><input type="submit" value="Зарегистрироваться"></td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
