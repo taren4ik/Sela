@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block body %}
-<h2> Список объявлений</h2>
+<h2>Список объявлений</h2>
 <div class="container mt-5">
   {% for post in posts_new %}
     <div class="alert alert-info">
@@ -13,25 +13,37 @@
       <p>Автор: {{ post.name }}</p>
       <p>Телефон: {{ post.phone }}</p>
       <p>Дата размещения: {{ post.date.strftime('%d %B %Y') }}</p>
+      {% if current_user.is_authenticated and current_user.pk == post.author%}
       <a href="/posts/{{post.id }}/delete" class="btn btn-danger">Удалить</a>
+      {% endif %}
     </div>
   {% endfor %}
 </div>
 
-
 {% if current_user.is_authenticated %}
-  <div class="container mt-5">
-    <h2>Новое объявление</h2>
-      <form method="post">
-        <input type="text" name="title" id="title" class="form-control"
-               placeholder="Введите название объявления"><br>
-        <textarea type="text" name="text" id="text" class="form-control"
-                  placeholder="Введите текст объявления"
-        ></textarea><br>
-        <input type="tel" name="phone" id="phone" class="form-control"
-               placeholder="Введите номер для контакта"><br>
-        <input type="submit"  class="btn btn-success" value="Отправить">
-      </form>
+<h2>Новое объявление</h2>
+  <div class="container mt-5"  style="width:70%; height:70%;">
+    <form method="post" enctype="multipart/form-data" >
+      <input type="text" name="title" id="title" class="form-control"
+             placeholder="Введите название объявления"><br>
+      <textarea type="text" name="text" id="text" class="form-control"
+             placeholder="Введите текст объявления">
+      </textarea><br>
+      <input type="tel" name="phone" id="phone" class="form-control"
+             placeholder="Введите номер для контакта"><br>
+      <input type="submit"  class="btn btn-success" value="Отправить">
+    </form>
   </div>
+{% else %}
+  <h2>Для полного доступа к разделу пройдите процедуру регистрации или
+    авторизации
+  </h2>
+  <tr>
+    <td><button  type="button" class="btn btn-success"><a
+        style="color: white"href="{{ url_for ('login') }}">Вход</a></button></td>
+    <td><button type="button" class="btn btn-success"><a
+        style="color: white" href="{{ url_for ('signup') }}">Регистрация</a></button></td>
+  </tr>
+
 {% endif %}
 {% endblock %}

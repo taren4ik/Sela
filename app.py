@@ -2,23 +2,20 @@ import datetime
 import os
 
 from dotenv import load_dotenv
-from flask import Flask
-from flask import render_template, request, redirect, flash, url_for
-from flask_login import LoginManager
-from flask_login import UserMixin
-from flask_login import login_required, login_user, logout_user
+from flask import Flask, render_template, request, redirect, flash, url_for
+from flask_login import (LoginManager, UserMixin, fresh_login_required,
+                         login_user, logout_user, current_user)
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import UniqueConstraint
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask_migrate import Migrate
+from forms import LoginForm, PostForm
 
 load_dotenv()
 basedir = os.path.abspath(os.path.dirname(__file__))
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
-
 app = Flask(__name__)
-
 
 app.config['SQLALCHEMY_DATABASE_URI'] = ('sqlite:///' + os.path.join(
     basedir, 'database.db'))
@@ -26,7 +23,6 @@ app.config['SECRET_KEY'] = SECRET_KEY
 app.debug = True
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
-
 
 login_manager = LoginManager(app)
 
@@ -50,7 +46,6 @@ def load_user(user_id):
 class Post(db.Model):
     __tablename__ = 'post'
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50), nullable=False)
     title = db.Column(db.String(100), nullable=False)
     text = db.Column(db.Text(1000), nullable=False)
     phone = db.Column(db.String(20), nullable=False)
@@ -61,12 +56,10 @@ class Post(db.Model):
         return '<Ad %r>' % self.id
 
 
-
 @app.route('/')
 @app.route('/home')
 def index():
     return render_template('index.html')
-
 
 
 @app.route('/entertainments')
@@ -96,32 +89,31 @@ def gallery():
 
 @app.route('/posts', methods=['GET'])
 def get_posts():
-    if request.method == 'GET':
-        posts = Post.query.order_by(Post.date.desc()).all()
-        return render_template('posts.html', posts=posts)
-    else:
-        return render_template('login.html')
+    form = PostForm()
+    posts_new = Post.query.order_by(Post.date.desc()).all()
+    return render_template('posts.html', posts_new=posts_new, form=form)
 
 
 @app.route('/posts', methods=['POST'])
-@login_required
+@fresh_login_required
 def add_posts():
-    if request.method == 'POST':
+    form = PostForm()
+
+    if form.validate_on_submit():
         title = request.form['title']
         text = request.form['text']
         phone = request.form['phone']
-        post = Post(title=title, phone=phone, text=text, name='admin')
+        author_id = current_user.id
+        post = Post(title=title, phone=phone, text=text, author=author_id)
         try:
             db.session.add(post)
             db.session.commit()
-            return redirect('posts')
+            return redirect('/posts')
 
         except Exception.OperationalError:
             raise 'Ошибка записи в БД.'
-
     else:
-        posts_new = Post.query.order_by(Post.date.desc()).all()
-        return render_template('posts.html', posts_new=posts_new)
+        raise 'Ошибка записи в БД.'
 
 
 @app.route('/posts/<int:id>/delete')
@@ -152,8 +144,8 @@ def login():
         if phone and check_password_hash(user.password, password):
             login_user(user)
             flash('Logged in successfully.')
-            next_page = request.args.get('next')
-            return redirect(next_page)
+            # next_page = request.args.get('next')
+            return redirect('/posts')
         else:
             flash('Некорректный логин или пароль')
     else:
@@ -195,7 +187,7 @@ def signup():
 
 
 @app.route("/logout")
-@login_required
+@fresh_login_required
 def logout():
     logout_user()
     return redirect(url_for('login'))
