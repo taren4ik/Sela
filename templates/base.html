@@ -13,6 +13,16 @@
 	<link rel="shortcut icon" href="static/css/img/sela.ico"
           type="image/x-icon">
   <link rel="stylesheet" href="{{url_for('static', filename = 'css/main.css')}}">
+  <link rel="icon" href="static/css/favicon.ico?ver=l649" type="image/x-icon">
+  <link rel="apple-touch-icon" href="static/css/touch-icon-iphone.png?ver=l649">
+  <link rel="apple-touch-icon" sizes="76x76" href="static/css/touch-icon-ipad.png?ver=l649">
+  <link rel="apple-touch-icon" sizes="120x120" href="static/css/touch-icon-iphone-retina.png?ver=l649">
+  <link rel="apple-touch-icon" sizes="152x152" href="static/css/touch-icon-ipad-retina.png?ver=l649">
+  <meta name="msapplication-TileImage" content="/touch-w8-mediumtile.png?ver=l649"/>
+  <meta name="msapplication-square70x70logo" content="static/css/touch-w8-smalltile.png?ver=l649" />
+  <meta name="msapplication-square150x150logo" content="static/css/touch-w8-mediumtile.png?ver=l649" />
+  <meta name="msapplication-wide310x150logo" content="static/css/touch-w8-widetile.png?ver=l649" />
+  <meta name="msapplication-square310x310logo" content="static/css/touch-w8-largetile.png?ver=l649" />
   {% block head %} {% endblock %}
     <script>
       if (screen.width < 620)
@@ -27,12 +37,12 @@
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <header>
       <div>
-       <a class="nav-link active" aria-current="page" href="/"><font
+        <a class="nav-link active" aria-current="page" href="/"><font
            style="vertical-align: inherit;"><font
            style="vertical-align: inherit;"><h1
            class="float-md-start mb-0"><font
            style="vertical-align: inherit;">c. Сёла</font></h1></font></font></a>
-       <nav class="nav nav-masthead justify-content-center float-md-end">
+        <nav class="nav nav-masthead justify-content-center float-md-end">
             <div class="dropdown">
               <a class="nav-link" aria-current="page" href="/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Главная</font></font></a>
               <div class="dropdown-content">
@@ -55,9 +65,20 @@
            <a class="nav-link" href="gallery"><font
                   style="vertical-align: inherit;"><font
                   style="vertical-align: inherit;">Галерея</font></font></a>
-            <a class="nav-link" href="signup"><font
-                  style="vertical-align: inherit;"><font
-                  style="vertical-align: inherit;">Регистрация</font></font></a>
+
+
+           <div class="dropdown">
+              <a class="nav-link" href="/login"><font
+                    style="vertical-align: inherit;"><font
+                    style="vertical-align: inherit;"><img
+               src="static/css/input.png" alt = "input"></font></font></a>
+              <div class="dropdown-content " style="right:0px;">
+                <a class="nav-link" href="/login">Вход</a>
+                <a class="nav-link" href="/signup">Регистрация</a>
+                <a class="nav-link" href="/logout">Выход</a>
+              </div>
+            </div>
+
         </nav>
       </div>
     </header>

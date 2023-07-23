@@ -1,15 +1,18 @@
 import datetime
 import os
+from datetime import timedelta
 
 from dotenv import load_dotenv
 from flask import Flask, render_template, request, redirect, flash, url_for
+from flask import session, app
 from flask_login import (LoginManager, UserMixin, fresh_login_required,
                          login_user, logout_user, current_user)
+from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import UniqueConstraint
 from werkzeug.security import check_password_hash, generate_password_hash
-from flask_migrate import Migrate
-from forms import LoginForm, PostForm
+
+from forms import PostForm
 
 load_dotenv()
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -20,7 +23,9 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = ('sqlite:///' + os.path.join(
     basedir, 'database.db'))
 app.config['SECRET_KEY'] = SECRET_KEY
-app.debug = True
+app.config['COOKIE_SECURE'] = 'Secure'
+app.config['COOKIE_DURATION'] = timedelta(minutes=30)
+app.debug = False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
@@ -54,6 +59,12 @@ class Post(db.Model):
 
     def __repr__(self):
         return '<Ad %r>' % self.id
+
+
+@app.before_request
+def make_session_permanent():
+    session.permanent = True
+    app.permanent_session_lifetime = timedelta(minutes=1)
 
 
 @app.route('/')
@@ -99,12 +110,13 @@ def get_posts():
 def add_posts():
     form = PostForm()
 
-    if form.validate_on_submit():
+    if request.method == 'POST':
         title = request.form['title']
         text = request.form['text']
         phone = request.form['phone']
         author_id = current_user.id
         post = Post(title=title, phone=phone, text=text, author=author_id)
+        print(author_id)
         try:
             db.session.add(post)
             db.session.commit()
@@ -113,7 +125,7 @@ def add_posts():
         except Exception.OperationalError:
             raise 'Ошибка записи в БД.'
     else:
-        raise 'Ошибка записи в БД.'
+        return 'Ошибка валидации.'
 
 
 @app.route('/posts/<int:id>/delete')
@@ -144,7 +156,6 @@ def login():
         if phone and check_password_hash(user.password, password):
             login_user(user)
             flash('Logged in successfully.')
-            # next_page = request.args.get('next')
             return redirect('/posts')
         else:
             flash('Некорректный логин или пароль')
@@ -167,7 +178,6 @@ def signup():
             flash('Пароли не совпадают.')
         else:
             hash = generate_password_hash(password)
-
             new_user = User(
                 first_name=first_name,
                 login=login,
@@ -181,8 +191,12 @@ def signup():
             return redirect(url_for('login'))
 
         except Exception as e:
-            return e
+            flash('Пользователь с указанным номером уже зарегистрирован. '
+                  'Пожалуйста используйте другой номер.')
+            return render_template('signup.html')
         return render_template('login.html')
+    else:
+        flash('Заполните форму.')
     return render_template('signup.html')
 
 
