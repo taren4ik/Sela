@@ -108,8 +108,6 @@ def get_posts():
 @app.route('/posts', methods=['POST'])
 @fresh_login_required
 def add_posts():
-    form = PostForm()
-
     if request.method == 'POST':
         title = request.form['title']
         text = request.form['text']
