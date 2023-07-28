@@ -151,7 +151,9 @@ def login():
     password = request.form.get('password')
     if password and phone:
         user = User.query.filter_by(phone=phone).first()
-        if phone and check_password_hash(user.password, password):
+        if (user and user.password and phone and check_password_hash(
+                user.password,
+                password)):
             login_user(user)
             flash('Logged in successfully.')
             return redirect('/posts')
