@@ -5,8 +5,11 @@ import phonenumbers
 
 
 class LoginForm(FlaskForm):
-    phone = StringField('phone', validators=[DataRequired()])
-    password = PasswordField('password', validators=[DataRequired()])
+    phone = StringField('phone', validators=[DataRequired()],
+                        render_kw={'placeholder': 'Phone format is '
+                                                  '+7XXXXXXXXXX'})
+    password = PasswordField('password', validators=[DataRequired()],
+                             render_kw={'placeholder': 'Password'})
     submit = SubmitField('Войти')
 
 

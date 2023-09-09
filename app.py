@@ -12,7 +12,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import UniqueConstraint
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from forms import PostForm
+from forms import LoginForm, PostForm
 
 load_dotenv()
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -147,6 +147,7 @@ def year():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    form = LoginForm()
     phone = request.form.get('phone')
     password = request.form.get('password')
     if password and phone:
@@ -161,7 +162,7 @@ def login():
             flash('Некорректный логин или пароль')
     else:
         flash('Заполните логин или пароль')
-    return render_template('login.html')
+    return render_template('login.html', form=form)
 
 
 @app.route('/signup', methods=['GET', 'POST'])
@@ -195,6 +196,46 @@ def signup():
                   'Пожалуйста используйте другой номер.')
             return render_template('signup.html')
         return render_template('login.html')
+    else:
+        flash('Заполните форму.')
+    return render_template('signup.html')
+
+
+
+
+@app.route('/profile', methods=['GET', 'POST'])
+def profile():
+    first_name = request.form.get('first_name')
+    login = request.form.get('login')
+    old_password = ''
+    new_password = request.form.get('password')
+    new_password2 = request.form.get('password2')
+    phone = request.form.get('phone')
+    if request.method == 'POST':
+        if not (first_name or login or new_password or new_password2 or phone
+        or old_password):
+            flash('Заполните все поля для регистрации.')
+        elif new_password != new_password2:
+            flash('Пароли не совпадают.')
+        else:
+            hash = generate_password_hash(new_password)
+            new_user = User(
+                first_name=first_name,
+                login=login,
+                password=hash,
+                phone=phone,
+            )
+
+        try:
+            db.session.add(new_user)
+            db.session.commit()
+            return redirect(url_for('profile'))
+
+        except Exception as e:
+            flash('Пользователь с указанным номером уже зарегистрирован. '
+                  'Пожалуйста используйте другой номер.')
+            return render_template('signup.html')
+        return render_template('profile.html')
     else:
         flash('Заполните форму.')
     return render_template('signup.html')

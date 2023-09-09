@@ -13,23 +13,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f6830fc-2b75-45ad-85a1-33ae634c5b2c" name="Default Changelist" comment="Настроил добавление и удаление постов только для авторизованных пользователей. Сделал красивую форму автризации.">
-      <change afterPath="$PROJECT_DIR$/static/css/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/favicon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/input.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/touch-icon-ipad-retina.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/touch-icon-ipad.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/touch-icon-iphone-retina.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/touch-icon-iphone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/touch-w8-largetile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/touch-w8-mediumtile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/touch-w8-smalltile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/touch-w8-widetile.png" afterDir="false" />
+    <list default="true" id="8f6830fc-2b75-45ad-85a1-33ae634c5b2c" name="Default Changelist" comment="Исправил login">
+      <change afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/alembic.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/script.py.mako" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/versions/3e56ba356a84_.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/versions/99bd7cffb8be_.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/photo/minipics/1.1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/photo/minipics/2.1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/photo/minipics/3.1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/photo/minipics/4.1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/photo/minipics/5.1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/posts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,13 +69,13 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\developer\Sela\static\css" />
       <recent name="D:\developer\Sela\templates" />
+      <recent name="D:\developer\Sela\static\css" />
       <recent name="D:\developer\Sela" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -85,7 +86,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.app">
-    <configuration name="5" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Sela" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -93,32 +94,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/5.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Sela" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/source" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/source/__init__.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -176,27 +156,6 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="D:\developer\Sela\venv\Scripts\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="D:\developer\Sela\setup.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="setup" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Sela" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -211,13 +170,49 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Doctest main (1)" type="tests" factoryName="Doctests" temporary="true" nameIsGenerated="true">
+      <module name="Sela" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/1.py" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="main" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_FUNCTION" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Doctest main" type="tests" factoryName="Doctests" temporary="true" nameIsGenerated="true">
+      <module name="Sela" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/1.py" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="main" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_FUNCTION" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.app" />
+        <item itemvalue="Python.1" />
+        <item itemvalue="Python tests.Doctest main (1)" />
+        <item itemvalue="Python tests.Doctest main" />
         <item itemvalue="Python.setup (1)" />
-        <item itemvalue="Python.setup" />
-        <item itemvalue="Python.__init__" />
-        <item itemvalue="Python.setup" />
       </list>
     </recent_temporary>
   </component>
@@ -366,7 +361,49 @@
       <option name="project" value="LOCAL" />
       <updated>1689948292608</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Настроил добавление и удаление постов только для авторизованных пользователей. Сделал красивую форму автризации.">
+      <created>1690117143701</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1690117143701</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Сделал хранение сессии 30 мин. Выполнил вёрстку форм регистрацииб входа.">
+      <created>1690117386983</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1690117386983</updated>
+    </task>
+    <task id="LOCAL-00022" summary="change Dockerfile">
+      <created>1690199854377</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1690199854377</updated>
+    </task>
+    <task id="LOCAL-00023" summary="change Dockerfile">
+      <created>1690204139111</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1690204139111</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Изменил Dockerfile и настрол форму регистрации">
+      <created>1690517116588</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1690517116588</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Исправил login">
+      <created>1690552001403</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1690552001403</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -398,7 +435,11 @@
     <MESSAGE value="Добавил аутентификацию для раздела объявлений" />
     <MESSAGE value="Добавил robots.txt" />
     <MESSAGE value="Настроил добавление и удаление постов только для авторизованных пользователей. Сделал красивую форму автризации." />
-    <option name="LAST_COMMIT_MESSAGE" value="Настроил добавление и удаление постов только для авторизованных пользователей. Сделал красивую форму автризации." />
+    <MESSAGE value="Сделал хранение сессии 30 мин. Выполнил вёрстку форм регистрацииб входа." />
+    <MESSAGE value="change Dockerfile" />
+    <MESSAGE value="Изменил Dockerfile и настрол форму регистрации" />
+    <MESSAGE value="Исправил login" />
+    <option name="LAST_COMMIT_MESSAGE" value="Исправил login" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

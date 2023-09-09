@@ -66,6 +66,11 @@
                   style="vertical-align: inherit;"><font
                   style="vertical-align: inherit;">Галерея</font></font></a>
 
+           {% if current_user.is_authenticated %}
+              <a href="profile" class="btn btn-success">{{ current_user
+                .login }}</a>
+           {% endif %}
+
 
            <div class="dropdown">
               <a class="nav-link" href="/login"><font
@@ -75,9 +80,11 @@
               <div class="dropdown-content " style="right:0px;">
                 <a class="nav-link" href="/login">Вход</a>
                 <a class="nav-link" href="/signup">Регистрация</a>
+                <a class="nav-link" href="/profile">Страница профиля</a>
                 <a class="nav-link" href="/logout">Выход</a>
               </div>
             </div>
+
 
         </nav>
       </div>
