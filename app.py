@@ -3,7 +3,7 @@ import os
 from datetime import timedelta
 
 from dotenv import load_dotenv
-from flask import Flask, render_template, request, redirect, flash, url_for
+from flask import Flask, render_template, request, redirect, flash, url_for, g
 from flask import session, app
 from flask_login import (LoginManager, UserMixin, fresh_login_required,
                          login_user, logout_user, current_user)
@@ -201,21 +201,27 @@ def signup():
     return render_template('signup.html')
 
 
-
-
-@app.route('/profile', methods=['GET', 'POST'])
+@app.route('/profile', methods=['GET', 'PUT'])
+@fresh_login_required
 def profile():
-    first_name = request.form.get('first_name')
-    login = request.form.get('login')
-    old_password = ''
-    new_password = request.form.get('password')
-    new_password2 = request.form.get('password2')
-    phone = request.form.get('phone')
-    if request.method == 'POST':
+    g.user = current_user
+    user = User.query.get_or_404(1)
+    if user:
+        first_name = user.first_name
+        login = user.login
+        old_password = request.form.get('password')
+        new_password = request.form.get('new_password')
+        new_password2 = request.form.get('new_password2')
+        phone = user.phone
+
+
+    if request.method == 'PUT':
         if not (first_name or login or new_password or new_password2 or phone
         or old_password):
             flash('Заполните все поля для регистрации.')
         elif new_password != new_password2:
+            flash('Пароли не совпадают.')
+        elif generate_password_hash(old_password) != user.password:
             flash('Пароли не совпадают.')
         else:
             hash = generate_password_hash(new_password)
@@ -232,13 +238,12 @@ def profile():
             return redirect(url_for('profile'))
 
         except Exception as e:
-            flash('Пользователь с указанным номером уже зарегистрирован. '
-                  'Пожалуйста используйте другой номер.')
-            return render_template('signup.html')
+            flash('Данные не обновлены.')
+            return render_template('login.html')
         return render_template('profile.html')
     else:
         flash('Заполните форму.')
-    return render_template('signup.html')
+        return render_template('profile.html')
 
 
 @app.route("/logout")

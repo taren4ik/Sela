@@ -45,7 +45,7 @@
 {% block body %}
   <h2>
       <font style="vertical-align: inherit;">
-        <font style="vertical-align: inherit;">Регистрация</font>
+        <font style="vertical-align: inherit;">Профайл</font>
       </font>
   </h2>
   {% with messages = get_flashed_messages() %}
@@ -70,12 +70,16 @@
                  pattern="[\+]\d{11}" minlength="10">
         </tr>
         <tr>
-          <input type="password" name="password" placeholder="Пароль"
+          <input type="old_password" name="new_password" placeholder="Пароль"
+                 minlength="6">
+        </tr>
+        <tr>
+          <input type="password" name="new_password" placeholder="Пароль"
                  minlength="6">
         </tr>
 
         <tr>
-          <input type="password" name="password2"  placeholder="Пароль"
+          <input type="password" name="new_password2"  placeholder="Пароль"
                  minlength="6">
         </tr>
         <tr>
