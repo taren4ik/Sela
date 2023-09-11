@@ -13,12 +13,15 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Войти')
 
 
-class Profile(FlaskForm):
+class ProfileForm(FlaskForm):
+    first_name = StringField('first_name', validators=[DataRequired()],
+                        render_kw={'placeholder': 'First_name'}),
+    login = StringField('login', validators=[DataRequired()],
+                        render_kw={'placeholder': 'Login '}),
     phone = StringField('phone', validators=[DataRequired()],
                         render_kw={'placeholder': 'Phone format is '
                                                   '+7XXXXXXXXXX'})
-    password = PasswordField('password', validators=[DataRequired()],
-                             render_kw={'placeholder': 'Password'})
+
     submit = SubmitField('Войти')
 
 

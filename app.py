@@ -12,7 +12,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import UniqueConstraint
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from forms import LoginForm, PostForm
+from forms import LoginForm, PostForm, ProfileForm
 
 load_dotenv()
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -204,25 +204,28 @@ def signup():
 @app.route('/profile', methods=['GET', 'PUT'])
 @fresh_login_required
 def profile():
-    g.user = current_user
+    g.user = current_user #текущий пользователь
     user = User.query.get_or_404(1)
+    form = ProfileForm()
     if user:
-        first_name = user.first_name
-        login = user.login
         old_password = request.form.get('password')
         new_password = request.form.get('new_password')
         new_password2 = request.form.get('new_password2')
         phone = user.phone
-
+        login = user.login
+        first_name = user.first_name
+        form.phone.data = user.phone
+        form.login = user.login
+        form.first_name = user.first_name
 
     if request.method == 'PUT':
         if not (first_name or login or new_password or new_password2 or phone
-        or old_password):
-            flash('Заполните все поля для регистрации.')
+                or old_password):
+            flash('Заполните все поля.')
         elif new_password != new_password2:
             flash('Пароли не совпадают.')
         elif generate_password_hash(old_password) != user.password:
-            flash('Пароли не совпадают.')
+            flash('Введен неправильный пароль.')
         else:
             hash = generate_password_hash(new_password)
             new_user = User(
@@ -240,11 +243,11 @@ def profile():
         except Exception as e:
             flash('Данные не обновлены.')
             return render_template('login.html')
-        return render_template('profile.html')
+        return render_template('profile.html', form=form)
     else:
         flash('Заполните форму.')
-        return render_template('profile.html')
-
+        return render_template('profile.html', form=form)
+    return render_template('profile.html', form=form)
 
 @app.route("/logout")
 @fresh_login_required
