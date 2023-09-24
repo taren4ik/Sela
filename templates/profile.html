@@ -56,21 +56,26 @@
     {% endif %}
   {% endwith %}
   <div  class="container mt-5"  style="width:300px; height:300px;">
-    <form method="put"  enctype="multipart/form-data">
+    <form method="post"  enctype="multipart/form-data">
+      {{ form.hidden_tag() }}
       <table>
+
+        {% for field in form %}
+          <tr>
+            {{ field }}
+          </tr>
+        {% endfor %}
         <tr>
-          <input type="text" name= {{ form.first_name }} placeholder="Имя"
+          <input type="text" name="first_name" placeholder="Имя" value={{ user.first_name }}
                  minlength="2">
         </tr>
         <tr>
-          <input type="text" name={{ form.login }}  placeholder="Логин" minlength="2">
+          <input type="text" name= {{ user.login }}  placeholder="Логин"
+                 value={{ user.login }}
+                 minlength="2">
         </tr>
         <tr>
-          <input type="tel" name= {{ form.phone }}
-                 placeholder="Телефон в формате +7XXXXXXXXXX" pattern="[\+]\d{11}" minlength="10">
-        </tr>
-        <tr>
-          <input type="old_password" name="new_password"
+          <input type="password" name="old_password"
                  placeholder="Текущий пароль"
                  minlength="6">
         </tr>

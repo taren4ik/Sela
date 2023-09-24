@@ -196,29 +196,29 @@ def signup():
                   'Пожалуйста используйте другой номер.')
             return render_template('signup.html')
         return render_template('login.html')
+
+
     else:
         flash('Заполните форму.')
     return render_template('signup.html')
 
 
-@app.route('/profile', methods=['GET', 'PUT'])
+@app.route('/profile', methods=['GET', 'POST'])
 @fresh_login_required
 def profile():
-    g.user = current_user #текущий пользователь
-    user = User.query.get_or_404(1)
-    form = ProfileForm()
-    if user:
+    g.user = current_user
+    user = g.user.id
+    user = User.query.get_or_404(user)
+    form = ProfileForm(obj=user)
+    if request.method == 'POST' and form.validate():
+        form.populate_obj(user)
         old_password = request.form.get('password')
         new_password = request.form.get('new_password')
         new_password2 = request.form.get('new_password2')
         phone = user.phone
         login = user.login
         first_name = user.first_name
-        form.phone.data = user.phone
-        form.login = user.login
-        form.first_name = user.first_name
 
-    if request.method == 'PUT':
         if not (first_name or login or new_password or new_password2 or phone
                 or old_password):
             flash('Заполните все поля.')
@@ -246,8 +246,8 @@ def profile():
         return render_template('profile.html', form=form)
     else:
         flash('Заполните форму.')
-        return render_template('profile.html', form=form)
-    return render_template('profile.html', form=form)
+        return render_template('profile.html', form=form, user=user)
+
 
 @app.route("/logout")
 @fresh_login_required

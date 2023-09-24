@@ -22,8 +22,6 @@ class ProfileForm(FlaskForm):
                         render_kw={'placeholder': 'Phone format is '
                                                   '+7XXXXXXXXXX'})
 
-    submit = SubmitField('Войти')
-
 
 class PostForm(FlaskForm):
     title = StringField('title', validators=[DataRequired()],)
