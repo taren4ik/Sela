@@ -11,12 +11,14 @@ from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import UniqueConstraint
 from werkzeug.security import check_password_hash, generate_password_hash
+from werkzeug.utils import secure_filename
 
 from forms import LoginForm, PostForm, ProfileForm
 
 load_dotenv()
 basedir = os.path.abspath(os.path.dirname(__file__))
 SECRET_KEY = os.environ.get("SECRET_KEY")
+UPLOAD_FOLDER = 'static/photo/post/'
 
 app = Flask(__name__)
 
@@ -26,6 +28,8 @@ app.config['SECRET_KEY'] = SECRET_KEY
 app.config['COOKIE_SECURE'] = 'Secure'
 app.config['COOKIE_DURATION'] = timedelta(minutes=30)
 app.debug = False
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['MAX_CONTENT_PATH'] = 5000
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
@@ -56,6 +60,7 @@ class Post(db.Model):
     phone = db.Column(db.String(20), nullable=False)
     date = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     author = db.Column(db.Integer(), db.ForeignKey(User.id))
+    image = db.Column(db.String(1000), nullable=True)
 
     def __repr__(self):
         return '<Ad %r>' % self.id
@@ -64,7 +69,7 @@ class Post(db.Model):
 @app.before_request
 def make_session_permanent():
     session.permanent = True
-    app.permanent_session_lifetime = timedelta(minutes=1)
+    app.permanent_session_lifetime = timedelta(minutes=5)
 
 
 @app.route('/')
@@ -109,12 +114,21 @@ def get_posts():
 @fresh_login_required
 def add_posts():
     if request.method == 'POST':
+        if 'file1' in request.files:
+            file1 = request.files['file1']
+            path = os.path.join(app.config['UPLOAD_FOLDER'],
+                                secure_filename(file1.filename))
+            file1.save(path)
+        else:
+            path = ''
         title = request.form['title']
         text = request.form['text']
         phone = request.form['phone']
         author_id = current_user.id
-        post = Post(title=title, phone=phone, text=text, author=author_id)
-        print(author_id)
+        image = path
+
+        post = Post(title=title, phone=phone, text=text, author=author_id,
+                    image=image)
         try:
             db.session.add(post)
             db.session.commit()
@@ -150,6 +164,7 @@ def login():
     form = LoginForm()
     phone = request.form.get('phone')
     password = request.form.get('password')
+
     if password and phone:
         user = User.query.filter_by(phone=phone).first()
         if (user and user.password and phone and check_password_hash(
@@ -183,9 +198,8 @@ def signup():
                 first_name=first_name,
                 login=login,
                 password=hash,
-                phone=phone,
+                phone=phone
             )
-
         try:
             db.session.add(new_user)
             db.session.commit()
@@ -196,7 +210,6 @@ def signup():
                   'Пожалуйста используйте другой номер.')
             return render_template('signup.html')
         return render_template('login.html')
-
 
     else:
         flash('Заполните форму.')
@@ -211,42 +224,44 @@ def profile():
     user = User.query.get_or_404(user)
     form = ProfileForm(obj=user)
     if request.method == 'POST' and form.validate():
-        form.populate_obj(user)
-        old_password = request.form.get('password')
+        form = ProfileForm(formdata=request.form, obj=user)
+
         new_password = request.form.get('new_password')
         new_password2 = request.form.get('new_password2')
-        phone = user.phone
-        login = user.login
-        first_name = user.first_name
-
-        if not (first_name or login or new_password or new_password2 or phone
-                or old_password):
+        old_password = request.form.get('old_password')
+        g.user.phone = user.phone
+        g.user.login = user.login
+        g.user.first_name = user.first_name
+        if not (new_password or new_password2 or  old_password):
             flash('Заполните все поля.')
         elif new_password != new_password2:
             flash('Пароли не совпадают.')
-        elif generate_password_hash(old_password) != user.password:
+        elif not check_password_hash(user.password, old_password):
             flash('Введен неправильный пароль.')
+            print(check_password_hash(user.password, old_password))
         else:
-            hash = generate_password_hash(new_password)
-            new_user = User(
-                first_name=first_name,
-                login=login,
-                password=hash,
-                phone=phone,
-            )
+           # hash = generate_password_hash(new_password)
+            g.user.password = generate_password_hash(new_password)
+            # new_user = User(
+            #     first_name=first_name,
+            #     login=login,
+            #     password=hash,
+            #     phone=phone,
+            # )
 
-        try:
-            db.session.add(new_user)
-            db.session.commit()
-            return redirect(url_for('profile'))
+            try:
+                print('ура')
+                db.session.add(g.user)
+                db.session.commit()
+                return redirect(url_for('profile'))
 
-        except Exception as e:
-            flash('Данные не обновлены.')
-            return render_template('login.html')
-        return render_template('profile.html', form=form)
-    else:
-        flash('Заполните форму.')
-        return render_template('profile.html', form=form, user=user)
+            except Exception as e:
+                flash('Данные не обновлены.')
+                return render_template('login.html')
+            return render_template('profile.html', form=form)
+
+    flash('Заполните форму.')
+    return render_template('profile.html', form=form, user=user)
 
 
 @app.route("/logout")

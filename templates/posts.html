@@ -13,6 +13,7 @@
       <p>Автор: {{ post.name }}</p>
       <p>Телефон: {{ post.phone }}</p>
       <p>Дата размещения: {{ post.date.strftime('%d %B %Y') }}</p>
+      <p><img src={{ post.image }} alt="photo_"{{ post.title }} /></p>
       {% if current_user.is_authenticated and current_user.id == post.author%}
       <a href="/posts/{{post.id }}/delete" class="btn btn-danger">Удалить</a>
       {% endif %}
@@ -31,6 +32,9 @@
       </textarea><br>
       <input type="tel" name="phone" id="phone" class="form-control"
              placeholder="Введите номер для контакта"><br>
+      <input type="file" name="file1" class="form-control"
+             placeholder="Добавить изображение"><br>
+
       <input type="submit"  class="btn btn-success" value="Отправить">
     </form>
   </div>

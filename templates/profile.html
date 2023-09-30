@@ -59,38 +59,42 @@
     <form method="post"  enctype="multipart/form-data">
       {{ form.hidden_tag() }}
       <table>
-
         {% for field in form %}
           <tr>
             {{ field }}
           </tr>
         {% endfor %}
         <tr>
-          <input type="text" name="first_name" placeholder="Имя" value={{ user.first_name }}
-                 minlength="2">
+          <input type="text" name="first_name" placeholder="Имя"
+                 value={{ user.first_name }} minlength="2">
         </tr>
         <tr>
           <input type="text" name= {{ user.login }}  placeholder="Логин"
                  value={{ user.login }}
-                 minlength="2">
+                 minlength="2"
+                  required>
         </tr>
         <tr>
           <input type="password" name="old_password"
                  placeholder="Текущий пароль"
-                 minlength="6">
+                 minlength="6"
+                 required>
         </tr>
         <tr>
           <input type="password" name="new_password" placeholder="Новый пароль"
-                 minlength="6">
+                 minlength="6"
+                 required>
         </tr>
 
         <tr>
           <input type="password" name="new_password2"
-                 placeholder="Новый пароль" minlength="6">
+                 placeholder="Новый пароль" minlength="6"
+                 required>
         </tr>
         <tr>
           <button type="submit" class="btn btn-primary btn-block btn-large">
-            Сохранить изменения </button>
+            Сохранить изменения
+          </button>
         </tr>
       </table>
     </form>
