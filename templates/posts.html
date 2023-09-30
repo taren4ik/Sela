@@ -13,7 +13,9 @@
       <p>Автор: {{ post.name }}</p>
       <p>Телефон: {{ post.phone }}</p>
       <p>Дата размещения: {{ post.date.strftime('%d %B %Y') }}</p>
-      <p><img src={{ post.image }} alt="photo_"{{ post.title }} /></p>
+      {% if  post.image  != ''  %}
+        <p><img src={{ post.image }} alt="photo_"{{ post.title }} /></p>
+      {% endif %}
       {% if current_user.is_authenticated and current_user.id == post.author%}
       <a href="/posts/{{post.id }}/delete" class="btn btn-danger">Удалить</a>
       {% endif %}

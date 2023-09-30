@@ -114,7 +114,7 @@ def get_posts():
 @fresh_login_required
 def add_posts():
     if request.method == 'POST':
-        if 'file1' in request.files:
+        if request.files['file1']:
             file1 = request.files['file1']
             path = os.path.join(app.config['UPLOAD_FOLDER'],
                                 secure_filename(file1.filename))
@@ -145,7 +145,8 @@ def post_delete(id):
     post = Post.query.get_or_404(id)
     file = post.image
     try:
-        os.remove(file)
+        if file != '':
+            os.remove(file)
         db.session.delete(post)
         db.session.commit()
         return redirect('/posts')
