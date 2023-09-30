@@ -13,9 +13,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f6830fc-2b75-45ad-85a1-33ae634c5b2c" name="Default Changelist" comment="Дополнил публикацию поста с изображением и без.">
+    <list default="true" id="8f6830fc-2b75-45ad-85a1-33ae634c5b2c" name="Default Changelist" comment="Дополнил контакты сада">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base_contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base_contact.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -416,7 +415,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696066086152</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Дополнил контакты сада">
+      <created>1696066627841</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1696066627841</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -431,7 +437,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Настроил шаблон contact.html и добавил привязку карт." />
     <MESSAGE value="Создал форму для добавления объявлений" />
     <MESSAGE value="Добавил вывод постов на сайт." />
     <MESSAGE value="Добавил выпадающее меню." />
@@ -456,7 +461,8 @@
     <MESSAGE value="Добавил изображение в модель поста." />
     <MESSAGE value="Реализовал удаление изображения после удаления поста." />
     <MESSAGE value="Дополнил публикацию поста с изображением и без." />
-    <option name="LAST_COMMIT_MESSAGE" value="Дополнил публикацию поста с изображением и без." />
+    <MESSAGE value="Дополнил контакты сада" />
+    <option name="LAST_COMMIT_MESSAGE" value="Дополнил контакты сада" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
