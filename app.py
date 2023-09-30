@@ -143,12 +143,15 @@ def add_posts():
 @app.route('/posts/<int:id>/delete')
 def post_delete(id):
     post = Post.query.get_or_404(id)
+    file = post.image
     try:
+        os.remove(file)
         db.session.delete(post)
         db.session.commit()
         return redirect('/posts')
     except Exception:
         raise 'Ошибка записи в БД.'
+        return redirect('/posts')
 
 
 @app.context_processor
