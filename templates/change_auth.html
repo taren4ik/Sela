@@ -43,9 +43,12 @@
 {% endblock %}
 
 {% block body %}
+
+
+{% if current_user.is_authenticated %}
   <h2>
       <font style="vertical-align: inherit;">
-        <font style="vertical-align: inherit;">Профайл</font>
+        <font style="vertical-align: inherit;">Смена пароля</font>
       </font>
   </h2>
   {% with messages = get_flashed_messages() %}
@@ -59,20 +62,21 @@
     <form method="post"  enctype="multipart/form-data">
       {{ form.hidden_tag() }}
       <table>
-        {% for field in form %}
-          <tr>
-            {{ field }}
-          </tr>
-        {% endfor %}
         <tr>
-          <input type="text" name="first_name" placeholder="Имя"
-                 value={{ user.first_name }} minlength="2">
+          <input type="password" name="old_password"
+                 placeholder="Текущий пароль"
+                 minlength="6"
+                 required>
         </tr>
         <tr>
-          <input type="text" name= "login" placeholder="Логин"
-                 value={{ user.login }}
-                 minlength="2"
-                  required>
+          <input type="password" name="new_password" placeholder="Новый пароль"
+                 minlength="6"
+                 required>
+        </tr>
+        <tr>
+          <input type="password" name="new_password2"
+                 placeholder="Новый пароль" minlength="6"
+                 required>
         </tr>
         <tr>
           <button type="submit" class="btn btn-primary btn-block btn-large">
@@ -83,4 +87,12 @@
     </form>
   </div>
 
+{% else %}
+  <h2>Пройдите процедуру авторизации</h2>
+  <tr>
+    <td><button  type="button" class="btn btn-success"><a
+        style="color: white"href="{{ url_for ('login') }}">Вход</a></button>
+    </td>
+  </tr>
+{% endif %}
 {% endblock %}>

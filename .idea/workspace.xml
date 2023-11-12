@@ -13,9 +13,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f6830fc-2b75-45ad-85a1-33ae634c5b2c" name="Default Changelist" comment="изменил gallery.html">
+    <list default="true" id="8f6830fc-2b75-45ad-85a1-33ae634c5b2c" name="Default Changelist" comment="изменил размеры изображения в посте">
+      <change afterPath="$PROJECT_DIR$/templates/change_auth.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/posts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +58,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
   </component>
   <component name="RecentsManager">
@@ -437,7 +441,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696079703383</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="изменил размеры изображения в посте">
+      <created>1696085080901</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1696085080901</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -452,7 +463,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Добавил выпадающее меню." />
     <MESSAGE value="Добавил Dockerfile, context_processor" />
     <MESSAGE value="Добавил requirements.txt" />
     <MESSAGE value="Добавил блок развлечений" />
@@ -477,7 +487,8 @@
     <MESSAGE value="Дополнил контакты сада" />
     <MESSAGE value="Перезаливка БД" />
     <MESSAGE value="изменил gallery.html" />
-    <option name="LAST_COMMIT_MESSAGE" value="изменил gallery.html" />
+    <MESSAGE value="изменил размеры изображения в посте" />
+    <option name="LAST_COMMIT_MESSAGE" value="изменил размеры изображения в посте" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

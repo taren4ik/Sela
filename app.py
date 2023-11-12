@@ -228,44 +228,56 @@ def profile():
     user = User.query.get_or_404(user)
     form = ProfileForm(obj=user)
     if request.method == 'POST' and form.validate():
-        form = ProfileForm(formdata=request.form, obj=user)
+        g.user.phone = request.form.get('phone')
+        g.user.login = request.form.get('login')
+        g.user.first_name = request.form.get('first_name')
+        try:
+            db.session.add(g.user)
+            db.session.commit()
+            return redirect(url_for('profile'))
 
+        except Exception as e:
+            flash('Данные не обновлены.')
+            return render_template('login.html')
+        return render_template('profile.html', form=form)
+
+    flash('Заполните форму.')
+    return render_template('profile.html', form=form, user=user)
+
+
+@app.route('/change_auth', methods=['GET', 'POST'])
+@fresh_login_required
+def change_auth():
+    g.user = current_user
+    user = g.user.id
+    user = User.query.get_or_404(user)
+    form = ProfileForm(obj=user)
+    if request.method == 'POST' and form.validate():
         new_password = request.form.get('new_password')
         new_password2 = request.form.get('new_password2')
         old_password = request.form.get('old_password')
-        g.user.phone = user.phone
-        g.user.login = user.login
-        g.user.first_name = user.first_name
-        if not (new_password or new_password2 or  old_password):
+        if not (new_password or new_password2 or old_password):
             flash('Заполните все поля.')
         elif new_password != new_password2:
             flash('Пароли не совпадают.')
         elif not check_password_hash(user.password, old_password):
             flash('Введен неправильный пароль.')
-            print(check_password_hash(user.password, old_password))
         else:
-           # hash = generate_password_hash(new_password)
             g.user.password = generate_password_hash(new_password)
-            # new_user = User(
-            #     first_name=first_name,
-            #     login=login,
-            #     password=hash,
-            #     phone=phone,
-            # )
-
             try:
-                print('ура')
                 db.session.add(g.user)
                 db.session.commit()
+                flash('Пароль успешно изменен.')
                 return redirect(url_for('profile'))
 
             except Exception as e:
                 flash('Данные не обновлены.')
                 return render_template('login.html')
-            return render_template('profile.html', form=form)
+            return render_template('change_auth.html', form=form)
 
     flash('Заполните форму.')
-    return render_template('profile.html', form=form, user=user)
+    return render_template('change_auth.html', form=form, user=user)
+
 
 
 @app.route("/logout")
