@@ -312,4 +312,8 @@ def redirect_to_signin(response):
 #         'feels_like': temperature_feels,
 #     }
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=os.environ.get('FLASK_SERVER_PORT', 5050))
+    app.run(
+        host='0.0.0.0',
+        port=os.environ.get('FLASK_SERVER_PORT', 5050),
+        static_folder='static'
+    )
