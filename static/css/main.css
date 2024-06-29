@@ -45,7 +45,7 @@ nav, span {
 
 
 .content {
-  padding: 3% 3% 3% 3%;
+  padding: 3% 5% 3% 5%;
   width: auto;
   font-style: italic;
 }
@@ -135,4 +135,6 @@ form {
 
     padding-bottom: 10%;
 }
+
+
 

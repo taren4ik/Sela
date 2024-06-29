@@ -1,12 +1,12 @@
 .photo {
 	float: left;
-    width: 20%;
-	padding: 10px;
+	width: auto
+	padding: 3% 5% 3% 5%;
 	box-sizing: border-box;
 }
 .photo img {
     display: block;
-    max-width: 100%;
+    max-width: 90%;
     height: auto;
     border: 10px solid #eee;
     box-sizing: border-box;
@@ -41,24 +41,5 @@
 }
 
 
-#gallery {
-    margin-bottom: 60px;
-}
-#gallery:after { 
-   content: '';
-   display: block; 
-   height: 0; 
-   clear: both;
-}
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-}
-
-.gallery img {
-  width: 100%;
-  height: auto;
-}
 
