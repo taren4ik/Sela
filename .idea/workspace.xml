@@ -13,7 +13,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f6830fc-2b75-45ad-85a1-33ae634c5b2c" name="Default Changelist" comment="db add .gitignore">
+    <list default="true" id="8f6830fc-2b75-45ad-85a1-33ae634c5b2c" name="Default Changelist" comment="Добавлены фотографии">
+      <change afterPath="$PROJECT_DIR$/static/photo/6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/photo/7.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/photo/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/photo/2.jpg" afterDir="false" />
@@ -490,7 +492,14 @@
       <option name="project" value="LOCAL" />
       <updated>1705819830107</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Добавлены фотографии">
+      <created>1719643146065</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1719643146065</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -505,7 +514,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Изменил раздел досуг" />
     <MESSAGE value="Фото источник." />
     <MESSAGE value="Добавил аутентификацию для раздела объявлений" />
     <MESSAGE value="Добавил robots.txt" />
@@ -530,7 +538,8 @@
     <MESSAGE value="Добавил контакты для библиотеки" />
     <MESSAGE value="добавил загрузку статики" />
     <MESSAGE value="db add .gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="db add .gitignore" />
+    <MESSAGE value="Добавлены фотографии" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлены фотографии" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
