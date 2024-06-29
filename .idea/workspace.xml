@@ -13,10 +13,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f6830fc-2b75-45ad-85a1-33ae634c5b2c" name="Default Changelist" comment="Корректировка CSS">
+    <list default="true" id="8f6830fc-2b75-45ad-85a1-33ae634c5b2c" name="Default Changelist" comment="Сделал адаптивное отображение галереи.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/photo-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/photo-style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -509,7 +509,14 @@
       <option name="project" value="LOCAL" />
       <updated>1719647874414</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Сделал адаптивное отображение галереи.">
+      <created>1719655936371</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1719655936371</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -524,7 +531,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Добавил robots.txt" />
     <MESSAGE value="Настроил добавление и удаление постов только для авторизованных пользователей. Сделал красивую форму автризации." />
     <MESSAGE value="Сделал хранение сессии 30 мин. Выполнил вёрстку форм регистрацииб входа." />
     <MESSAGE value="change Dockerfile" />
@@ -549,7 +555,8 @@
     <MESSAGE value="Добавлены фотографии" />
     <MESSAGE value="Корректировка шрифта" />
     <MESSAGE value="Корректировка CSS" />
-    <option name="LAST_COMMIT_MESSAGE" value="Корректировка CSS" />
+    <MESSAGE value="Сделал адаптивное отображение галереи." />
+    <option name="LAST_COMMIT_MESSAGE" value="Сделал адаптивное отображение галереи." />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
