@@ -13,10 +13,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f6830fc-2b75-45ad-85a1-33ae634c5b2c" name="Default Changelist" comment="Разделил редактирование персональных данных и пароля">
+    <list default="true" id="8f6830fc-2b75-45ad-85a1-33ae634c5b2c" name="Default Changelist" comment="db add .gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/posts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/photo/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/photo/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/photo/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/photo/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/photo/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/photo/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/gallery.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gallery.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +59,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -452,7 +455,42 @@
       <option name="project" value="LOCAL" />
       <updated>1699782659421</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Добавил автоподстановку телефона текущего пользователя">
+      <created>1705719190058</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1705719190058</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Добавил контакты для библиотеки">
+      <created>1705727478045</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1705727478045</updated>
+    </task>
+    <task id="LOCAL-00040" summary="добавил загрузку статики">
+      <created>1705756749734</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1705756749734</updated>
+    </task>
+    <task id="LOCAL-00041" summary="добавил загрузку статики">
+      <created>1705757243256</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1705757243256</updated>
+    </task>
+    <task id="LOCAL-00042" summary="db add .gitignore">
+      <created>1705819830107</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1705819830107</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -467,10 +505,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Добавил requirements.txt" />
-    <MESSAGE value="Добавил блок развлечений" />
-    <MESSAGE value="debug" />
-    <MESSAGE value="database" />
     <MESSAGE value="Изменил раздел досуг" />
     <MESSAGE value="Фото источник." />
     <MESSAGE value="Добавил аутентификацию для раздела объявлений" />
@@ -492,7 +526,11 @@
     <MESSAGE value="изменил gallery.html" />
     <MESSAGE value="изменил размеры изображения в посте" />
     <MESSAGE value="Разделил редактирование персональных данных и пароля" />
-    <option name="LAST_COMMIT_MESSAGE" value="Разделил редактирование персональных данных и пароля" />
+    <MESSAGE value="Добавил автоподстановку телефона текущего пользователя" />
+    <MESSAGE value="Добавил контакты для библиотеки" />
+    <MESSAGE value="добавил загрузку статики" />
+    <MESSAGE value="db add .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="db add .gitignore" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
