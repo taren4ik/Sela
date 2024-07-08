@@ -1,9 +1,17 @@
+.gallery-center {
+    display: flex;
+    justify-content: center; /* Центрирование контейнера по горизонтали */
+    flex-wrap: wrap; /* Перенос элементов на следующую строку */
+}
+
+
 .photo {
 	float: left;
 	width: auto
 	padding: 3% 5% 3% 5%;
 	box-sizing: border-box;
 }
+
 .photo img {
     display: block;
     max-width: 90%;
