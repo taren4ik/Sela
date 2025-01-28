@@ -40,6 +40,9 @@ admin = Admin(app, name='Administration Panel', template_mode='bootstrap3')
 login_manager = LoginManager(app)
 
 
+
+
+
 class User(db.Model, UserMixin):
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
@@ -47,6 +50,7 @@ class User(db.Model, UserMixin):
     login = db.Column(db.String(50), nullable=False)
     password = db.Column(db.String(128), nullable=False)
     phone = db.Column(db.String(20), nullable=False, unique=True)
+    is_admin = db.Column(db.Boolean, default=False)
     UniqueConstraint("login", "phone", name="uix_1")
     db.relationship('Post', backref='post')
 
@@ -69,8 +73,18 @@ class Post(db.Model):
     def __repr__(self):
         return '<Ad %r>' % self.id
 
-admin.add_view(ModelView(User, db.session))
-admin.add_view(ModelView(Post, db.session))
+
+
+class ProtectedModelView(ModelView):
+    """Проверка авторизации в админке."""
+    def is_accessible(self):
+        return current_user.is_authenticated and current_user.is_admin
+
+    def inaccessible_callback(self, name, **kwargs):
+        return redirect(url_for('login'))
+
+admin.add_view(ProtectedModelView(User, db.session))
+admin.add_view(ProtectedModelView(Post, db.session))
 
 
 @app.before_request
